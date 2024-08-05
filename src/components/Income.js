@@ -9,7 +9,7 @@ function Income({ addTransaction }) {
     e.preventDefault();
     addTransaction({ type: 'income', amount: parseFloat(amount), date, description });
     setAmount('');
-    setDate('');
+    setDate(''); 
     setDescription('');
   };
 

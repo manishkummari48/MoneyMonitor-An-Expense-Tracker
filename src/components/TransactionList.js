@@ -11,7 +11,7 @@ function TransactionList({ transactions, deleteTransaction }) {
         <h2>Income History</h2>
         <ul>
           {incomeTransactions.map((transaction, index) => (
-            <Transaction key={index} transaction={transaction} deleteTransaction={() => deleteTransaction(index)} />
+            <Transaction key={index} transaction={transaction} deleteTransaction={() => deleteTransaction(transaction.id)} />
           ))}
         </ul>
       </div>
@@ -19,7 +19,7 @@ function TransactionList({ transactions, deleteTransaction }) {
         <h2>Expense History</h2>
         <ul>
           {expenseTransactions.map((transaction, index) => (
-            <Transaction key={index} transaction={transaction} deleteTransaction={() => deleteTransaction(index)} />
+            <Transaction key={index} transaction={transaction} deleteTransaction={() => deleteTransaction(transaction.id)} />
           ))}
         </ul>
       </div>

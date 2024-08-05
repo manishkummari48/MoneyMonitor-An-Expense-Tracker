@@ -1,0 +1,45 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "thoparamsainithish1234@gmail.com",
+      "password": "nithish"
+    },
+    {
+      "id": 2,
+      "email": "surajmaka@gmail.com",
+      "password": "maka"
+    },
+    {
+      "id": "a9cd",
+      "email": "manishkummari@gmail.com",
+      "password": "manish"
+    }
+  ],
+  "transactions": [
+    {
+      "id": "ef4a",
+      "email": "thoparamsainithish1234@gmail.com",
+      "type": "income",
+      "amount": 10000,
+      "date": "2024-03-03",
+      "description": "ok"
+    },
+    {
+      "id": "16fd",
+      "email": "surajmaka@gmail.com",
+      "type": "income",
+      "amount": 1000000,
+      "date": "2024-03-03",
+      "description": "Salary"
+    },
+    {
+      "id": "a55a",
+      "email": "surajmaka@gmail.com",
+      "type": "expense",
+      "amount": 50000,
+      "date": "2024-08-05",
+      "description": "Priyanka Mohan tho Dating"
+    }
+  ]
+}
