@@ -1,12 +1,12 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "email": "thoparamsainithish1234@gmail.com",
       "password": "nithish"
     },
     {
-      "id": 2,
+      "id": "2",
       "email": "surajmaka@gmail.com",
       "password": "maka"
     },
@@ -14,6 +14,81 @@
       "id": "a9cd",
       "email": "manishkummari@gmail.com",
       "password": "manish"
+    },
+    {
+      "id": "e133",
+      "email": "123",
+      "password": "maka"
+    },
+    {
+      "id": "73e1",
+      "email": "",
+      "password": "maka"
+    },
+    {
+      "id": "409c",
+      "email": "",
+      "password": "maka"
+    },
+    {
+      "id": "9c19",
+      "email": "",
+      "password": "maka"
+    },
+    {
+      "id": "9e98",
+      "email": "",
+      "password": "maka"
+    },
+    {
+      "id": "c3e9",
+      "email": "",
+      "password": ""
+    },
+    {
+      "id": "369d",
+      "email": "",
+      "password": ""
+    },
+    {
+      "id": "7553",
+      "email": "",
+      "password": ""
+    },
+    {
+      "id": "c347",
+      "email": "",
+      "password": ""
+    },
+    {
+      "id": "cdf3",
+      "email": "",
+      "password": ""
+    },
+    {
+      "id": "144e",
+      "email": "",
+      "password": ""
+    },
+    {
+      "id": "a4a4",
+      "email": "",
+      "password": ""
+    },
+    {
+      "id": "a423",
+      "email": "",
+      "password": ""
+    },
+    {
+      "id": "9ba1",
+      "email": "",
+      "password": ""
+    },
+    {
+      "id": "8e49",
+      "email": "",
+      "password": ""
     }
   ],
   "transactions": [
@@ -32,14 +107,6 @@
       "amount": 1000000,
       "date": "2024-03-03",
       "description": "Salary"
-    },
-    {
-      "id": "a55a",
-      "email": "surajmaka@gmail.com",
-      "type": "expense",
-      "amount": 50000,
-      "date": "2024-08-05",
-      "description": "Priyanka Mohan tho Dating"
     }
   ]
 }

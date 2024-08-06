@@ -99,16 +99,17 @@ function Main() {
     <div className='Main'>
         <h1>Income & Expense Tracker</h1>
         <div className="card-container">
-            <div className="card" onClick={() => setShowBalance(!showBalance)}>
+            <div className="card" onClick={() =>{setShowBalance(!showBalance); setShowIncome(false); setShowExpense(false); setShowTransactions(false);
+            } }>
             <h2>Balance</h2>
             </div>
-            <div className="card" onClick={() => setShowIncome(!showIncome)}>
+            <div className="card" onClick={() => {setShowIncome(!showIncome); setShowBalance(false); setShowExpense(false) ;setShowTransactions(false)}}>
             <h2>Income</h2>
             </div>
-            <div className="card" onClick={() => setShowExpense(!showExpense)}>
+            <div className="card" onClick={() => {setShowExpense(!showExpense); setShowBalance(false) ;setShowIncome(false); setShowTransactions(false)}}>
             <h2>Expense</h2>
             </div>
-            <div className="card" onClick={() => setShowTransactions(!showTransactions)}>
+            <div className="card" onClick={() => {setShowTransactions(!showTransactions); setShowBalance(false); setShowExpense(false); setShowIncome(false)}}>
             <h2>Transactions</h2>
             </div>
         </div>

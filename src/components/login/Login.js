@@ -1,21 +1,20 @@
-import React, {useState} from 'react'
-import {useForm} from 'react-hook-form'
-import './Login.css'
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import './Login.css';
 import { useNavigate } from 'react-router-dom';
-function Login() {
 
+function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('OK');
 
   const navigate = useNavigate();
 
-  const {register,handleSubmit,formState:{errors}}=useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm();
 
-  const onSubmit = async(data)=>{
-    // console.log(data)
+  const onSubmit = async (data) => {
     const userEmail = data.userEmail;
-    const userPassword = data.userPassword
+    const userPassword = data.userPassword;
     try {
       const response = await fetch('http://localhost:5000/users');
       const users = await response.json();
@@ -26,43 +25,39 @@ function Login() {
 
       if (user) {
         setMessage('Login successful');
-        setEmail(user.email)
-        setPassword(user.password)
-        
-        localStorage.setItem('userEmail', user.email)
-        alert(`\nEmail : ${user.email} \nPassword : ${user.password}` )
-        navigate('/main')
+        setEmail(user.email);
+        setPassword(user.password);
 
+        localStorage.setItem('userEmail', user.email);
+        alert(`\nEmail : ${user.email} \nPassword : ${user.password}`);
+        navigate('/main');
       } else {
         setMessage('Invalid username or password');
-        alert("Login is UnSuccessfull")
+        alert("Login is UnSuccessful");
       }
-
     } catch (error) {
       alert('An error occurred');
     }
-
-
-  }
+  };
 
   return (
-    <div>
-      <h4 className='text-warning fw-bolder fs-2 '>Login</h4>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        {/* Input Email */}
-        <div>
-          {/* {errors.userEmail&& <label htmlFor='userEmail' className='text-warning me-2'>{errors.userEmail.message}</label>} */}
-          <input type="email" placeholder='Enter E-mail'  id='userEmail' {...register('userEmail')}/>
-        </div> 
-        <div  >
-          <input type="password" placeholder='enter password' id='userPassword' {...register('userPassword')}/>
-        </div> 
-        <div>
-          <button type='submit' > Login</button>
-        </div>
-      </form>
+    <div className="login-container">
+      <div className="card">
+        <h2 >Login</h2>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div>
+            <input type="email" placeholder='Enter E-mail' id='userEmail' {...register('userEmail')} />
+          </div>
+          <div>
+            <input type="password" placeholder='Enter Password' id='userPassword' {...register('userPassword')} />
+          </div>
+          <div>
+            <button type='submit'>Login</button>
+          </div>
+        </form>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Login
+export default Login;

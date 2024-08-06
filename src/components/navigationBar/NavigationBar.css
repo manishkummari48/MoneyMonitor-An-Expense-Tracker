@@ -1,3 +1,81 @@
-.navigation-bar{
-    border: 2px solid green;
+/* General styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+/* Navigation bar container */
+.navigation-bar {
+    background-color: #333;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Box styling */
+.box {
+    display: flex;
+    align-items: center;
+}
+
+.box3 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-grow: 1;
+}
+
+/* Navigation links */
+.navigation-bar a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navigation-bar a:hover {
+    background-color: #575757;
+    color: #e0e0e0;
+}
+
+.navigation-bar a.active {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* User info styling */
+.navigation-bar p {
+    margin: 0;
+    padding: 0 10px;
+    font-weight: bold;
+    color: #ff9800;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .navigation-bar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .box3 {
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .navigation-bar a {
+        display: block;
+        margin: 5px 0;
+    }
 }

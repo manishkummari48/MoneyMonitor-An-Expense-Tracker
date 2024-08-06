@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import './Register.css'
-function Register() {
+import './Register.css';
 
+function Register() {
   const [email, setemail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
-  
+
   const handleRegister = async () => {
     try {
       const response = await fetch('http://localhost:5000/users', {
@@ -30,24 +30,26 @@ function Register() {
   };
 
   return (
-    <div>
-      <h2>Register</h2>
-      <input
-        type="text"
-        placeholder="email"
-        value={email}
-        onChange={(e) => setemail(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={handleRegister}>Register</button>
-      <p>{message}</p>
+    <div className="register-container">
+      <div className="card">
+        <h2>Register</h2>
+        <input
+          type="text"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setemail(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button onClick={handleRegister}>Register</button>
+        <p>{message}</p>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Register
+export default Register;
