@@ -8,35 +8,47 @@ body {
 
 /* Navigation bar container */
 .navigation-bar {
-    background-color: #333;
-    padding: 10px 20px;
+    background-color: #d96d6d; /* Dark Coral */
+    padding: 0 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     color: #fff;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
+    height: 60px;
+}
+
+/* Logo container */
+.logo-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.logo {
+    height: 100%;
+    width: auto;
 }
 
 /* Box styling */
 .box {
     display: flex;
     align-items: center;
+    margin-left: auto;
 }
 
 .box3 {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    flex-grow: 1;
 }
 
 /* Navigation links */
 .navigation-bar a {
-    color: #fff;
+    color: #fff; /* White text for normal state */
     text-decoration: none;
     margin: 0 10px;
     padding: 8px 16px;
@@ -44,14 +56,16 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Hover state */
 .navigation-bar a:hover {
-    background-color: #575757;
-    color: #e0e0e0;
+    background-color: #ffb3b3; /* Light Peach */
+    color: #333333; /* Dark Gray */
 }
 
+/* Active state */
 .navigation-bar a.active {
-    background-color: #007bff;
-    color: #fff;
+    background-color: #943939; /* Darker Coral */
+    color: #fff; /* White text for active link */
 }
 
 /* User info styling */
@@ -59,23 +73,28 @@ body {
     margin: 0;
     padding: 0 10px;
     font-weight: bold;
-    color: #ff9800;
+    color: #ff9800; /* Orange color for user info */
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
     .navigation-bar {
-        flex-direction: column;
-        text-align: center;
+        flex-direction: row;
+    }
+
+    .logo-container {
+        margin-bottom: 0;
     }
 
     .box3 {
-        justify-content: center;
-        margin-top: 10px;
+        justify-content: flex-end;
+        margin-top: 0;
     }
 
     .navigation-bar a {
-        display: block;
+        display: flex;
         margin: 5px 0;
     }
 }
+
+

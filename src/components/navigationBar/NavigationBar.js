@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import './NavigationBar.css'
 import { NavLink, useNavigate } from 'react-router-dom';
+import logo from '../../images/logo.png';
+
 function NavigationBar() {
 
   const [isUserLoggedin, setIsUserLoggedin] = useState(false);
@@ -21,12 +23,15 @@ function NavigationBar() {
         navigate('main')
       }
       else{
-        navigate('login');
+         navigate('/')
       }
   },[localStorage.getItem('userEmail')])
 
   return (
     <div className='navigation-bar'>
+        <div className="logo-container">
+          <img src={logo} alt="Website Logo" className="logo" />
+        </div>
        <div className="box box3">
             {isUserLoggedin&&<p>USER : {loggedinEmail}</p>}
             <NavLink to = "/">Home</NavLink>

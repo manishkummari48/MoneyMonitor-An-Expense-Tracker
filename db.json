@@ -16,11 +16,6 @@
       "password": "manish"
     },
     {
-      "id": "e133",
-      "email": "123",
-      "password": "maka"
-    },
-    {
       "id": "73e1",
       "email": "",
       "password": "maka"
@@ -101,12 +96,36 @@
       "description": "ok"
     },
     {
-      "id": "16fd",
+      "id": "5ec1",
       "email": "surajmaka@gmail.com",
       "type": "income",
-      "amount": 1000000,
-      "date": "2024-03-03",
-      "description": "Salary"
+      "amount": 1000,
+      "date": "2024-08-08",
+      "description": "m"
+    },
+    {
+      "id": "0dbc",
+      "email": "surajmaka@gmail.com",
+      "type": "expense",
+      "amount": 500,
+      "date": "2024-08-11",
+      "description": "m"
+    },
+    {
+      "id": "85d5",
+      "email": "surajmaka@gmail.com",
+      "type": "income",
+      "amount": 100,
+      "date": "2024-08-12",
+      "description": "n"
+    },
+    {
+      "id": "1b13",
+      "email": "surajmaka@gmail.com",
+      "type": "expense",
+      "amount": 400,
+      "date": "2024-08-12",
+      "description": "m"
     }
   ]
 }

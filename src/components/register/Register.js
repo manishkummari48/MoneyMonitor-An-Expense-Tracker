@@ -35,13 +35,13 @@ function Register() {
         <h2>Register</h2>
         <input
           type="text"
-          placeholder="Email"
+          placeholder="Enter E-mail"
           value={email}
           onChange={(e) => setemail(e.target.value)}
         />
         <input
           type="password"
-          placeholder="Password"
+          placeholder="Enter Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />

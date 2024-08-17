@@ -97,7 +97,7 @@ function Main() {
 
   return (
     <div className='Main'>
-        <h1>Income & Expense Tracker</h1>
+        <h1>MONEY MONITOR</h1>
         <div className="card-container">
             <div className="card" onClick={() =>{setShowBalance(!showBalance); setShowIncome(false); setShowExpense(false); setShowTransactions(false);
             } }>

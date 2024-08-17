@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import './Login.css';
 import { useNavigate } from 'react-router-dom';
 
+
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -29,7 +30,7 @@ function Login() {
         setPassword(user.password);
 
         localStorage.setItem('userEmail', user.email);
-        alert(`\nEmail : ${user.email} \nPassword : ${user.password}`);
+        alert(`\nEmail : ${user.email} \n`);
         navigate('/main');
       } else {
         setMessage('Invalid username or password');
@@ -42,6 +43,7 @@ function Login() {
 
   return (
     <div className="login-container">
+       
       <div className="card">
         <h2 >Login</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
