@@ -1,9 +1,9 @@
-/* Import a Google Font */
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 .Main {
   font-family: 'Roboto', sans-serif;
-  background-color: #f8f9fa;
+  background-color: #f8f9fa71;
   margin: 0;
   padding: 0;
 }
@@ -36,7 +36,9 @@ form {
   gap: 12px;
   margin: 20px 0;
 }
-
+.title{
+  color: #2d3436
+}
 input, button {
   padding: 12px;
   border: 1px solid #ced4da;

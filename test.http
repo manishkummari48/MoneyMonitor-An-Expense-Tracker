@@ -1,0 +1,74 @@
+GET http://localhost:3500/get-users
+
+###
+GET http://localhost:3500/get-user/100
+
+
+###
+POST http://localhost:3500/create-user
+Content-Type: application/json
+
+{
+    "id":200,
+    "name":"manish",
+    "age":20
+}
+
+
+###
+PUT http://localhost:3500/update-user
+Content-Type: application/json
+
+{
+    "id": 100,
+    "name":"kiran babu",
+    "age": 25
+}
+
+###
+DELETE http://localhost:3500/delete-user/200
+
+
+
+#Requests for APIs in  separate files
+
+
+###
+GET http://localhost:3500/user-api/get-user/manish
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5pdGhpc2giLCJpYXQiOjE3NDI2MTk0NjIsImV4cCI6MTc0MjYxOTU4Mn0.tKpMfVYb6uWxPciY2ONjYMEoIbM8_bFOtvHdCOR7XUU
+
+###
+POST http://localhost:3500/user-api/user-signup
+Content-Type: application/json
+
+{
+    "username":"nithish",
+    "password":"nithish",
+    "email":"nithish@gmail.com"
+}
+
+###
+POST http://localhost:3500/users-api/login 
+Content-Type: application/json
+
+{
+    "username":"shashank",
+    "password":"shashank"
+}
+
+###
+POST http://localhost:3500/transactions-api/add-transaction
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNoYXNoYW5rIiwiaWF0IjoxNzQyODE1MTY3LCJleHAiOjE3NDI5MDE1Njd9.OFjxb-OPkt3p4dpwmn6l3F9WevXhQr_UAgsC4pecNLw
+Content-Type: application/json
+
+{
+    "username":"manish",
+    "type": "income",
+    "amount": 1000,
+    "date": "2024-03-03",
+    "description": "ok"
+}
+
+###
+GET http://localhost:3500/transactions-api/get-transactions/shashank
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNoYXNoYW5rIiwiaWF0IjoxNzQyODE1MTY3LCJleHAiOjE3NDI5MDE1Njd9.OFjxb-OPkt3p4dpwmn6l3F9WevXhQr_UAgsC4pecNLw

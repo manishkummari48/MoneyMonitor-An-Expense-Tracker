@@ -1,84 +1,175 @@
 html, body {
-    margin: 0; /* Remove default margin */
-    height: 100%; /* Ensure full height for the body */
+    margin: 0;
+    height: 100%;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 .main {
     display: flex;
-    background: linear-gradient(to right, white, #feb47b); /* White to orange gradient */
-    padding: 20px;
-    border-radius: 10px; /* Optional: Add rounded corners */
-    min-height: 100vh; /* Ensure the container takes up at least the full viewport height */
-    box-sizing: border-box; /* Ensure padding is included in height calculation */
+    background: linear-gradient(120deg, #ffffff, #feb47b);
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 2rem;
+    gap: 4rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+    pointer-events: none;
 }
 
 .left {
-    width: 50%;
+    flex: 1;
     display: flex;
-    align-items: center; /* Center the image vertically */
-    justify-content: center; /* Center the image horizontally */
+    align-items: center;
+    justify-content: center;
+    animation: slideIn 1s ease-out;
 }
 
 .right {
-    width: 50%;
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
+    animation: fadeIn 1s ease-out;
 }
 
-#leftImage{
+#leftImage {
     width: 100%;
-    margin-top: 10%;
-}
-#logo{
-    width: 40%;
-    height:auto;
-    margin-bottom: 0;
+    max-width: 600px;
+    height: auto;
+    margin-top: 5%;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+    transition: transform 0.3s ease;
 }
 
+#leftImage:hover {
+    transform: translateY(-5px);
+}
+
+#logo {
+    width: 40%;
+    height: auto;
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease;
+}
+
+#logo:hover {
+    transform: scale(1.05);
+}
 
 h1 {
-    margin-top: 0;
-    font-family: 'Merriweather', serif;
-    font-size: 2.5rem; /* Adjust the font size */
-    font-weight: 700; /* Adjust the font weight (700 for bold) */
-    color: #333; 
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 800;
+    color: #2d3436;
+    margin: 0 0 1rem 0;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
 }
 
 p {
-    font-family: 'Merriweather', serif;
-    font-size: 1.2rem; 
-    font-weight: 400; 
-    color: #333; 
-    margin: 0; 
-    padding-top: 10px; 
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: #636e72;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0;
+    padding-top: 1rem;
 }
 
+/* Animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
 
-/* Media query for screens smaller than 768px */
-@media (max-width: 768px) {
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Glass morphism effect for potential cards or containers */
+.glass-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Media Queries */
+@media (max-width: 968px) {
     .main {
-        flex-direction: column; /* Stack the left and right sections vertically */
-        background: linear-gradient(to bottom, white, #feb47b); /* Change gradient direction */
-        height: 100vh; /* Ensure the container takes up full viewport height */
+        flex-direction: column;
+        padding: 1rem;
+        gap: 2rem;
     }
 
     .left {
-        display: none; /* Hide the left section on small screens */
+        padding: 2rem;
+    }
+
+    #leftImage {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main {
+        background: linear-gradient(150deg, #ffffff, #feb47b);
+    }
+
+    .left {
+        display: none;
     }
 
     .right {
-        width: 100%; /* Full width on smaller screens */
-        height: 100%; /* Full height on smaller screens */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        width: 100%;
+        padding: 2rem;
     }
 
     #logo {
-        width: 50%; /* Adjust logo size if needed */
+        width: 60%;
+    }
+
+    h1 {
+        font-size: clamp(1.8rem, 5vw, 2.5rem);
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .main {
+        background: linear-gradient(120deg, #2d3436, #feb47b);
+    }
+
+    h1 {
+        color: #f5f6fa;
+    }
+
+    p {
+        color: #dcdde1;
     }
 }

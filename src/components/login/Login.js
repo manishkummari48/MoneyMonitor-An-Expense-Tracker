@@ -1,65 +1,52 @@
-import React, { useState } from 'react';
+
+import React, { useContext, useState,useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import './Login.css';
 import { useNavigate } from 'react-router-dom';
-
-
+import { loginContext } from '../../contexts/loginContext';
 function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  let [loggedInUser,loginErr,userLoginStatus,loginUser] = useContext(loginContext)
   const [message, setMessage] = useState('OK');
 
   const navigate = useNavigate();
 
   const { register, handleSubmit, formState: { errors } } = useForm();
 
-  const onSubmit = async (data) => {
-    const userEmail = data.userEmail;
-    const userPassword = data.userPassword;
-    try {
-      const response = await fetch('http://localhost:5000/users');
-      const users = await response.json();
+  const onSubmit = async (userCredObj) => {
+    loginUser(userCredObj);
+    };
 
-      const user = users.find(
-        (user) => user.email === userEmail && user.password === userPassword
-      );
-
-      if (user) {
-        setMessage('Login successful');
-        setEmail(user.email);
-        setPassword(user.password);
-
-        localStorage.setItem('userEmail', user.email);
-        alert(`\nEmail : ${user.email} \n`);
-        navigate('/main');
-      } else {
-        setMessage('Invalid username or password');
-        alert("Login is UnSuccessful");
+    useEffect(()=>{
+      if(userLoginStatus === true){
+        navigate("/main")
       }
-    } catch (error) {
-      alert('An error occurred');
-    }
-  };
+      
+    })
 
   return (
     <div className="login-container">
-       
       <div className="card">
-        <h2 >Login</h2>
+        <h2>Login</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div>
-            <input type="email" placeholder='Enter E-mail' id='userEmail' {...register('userEmail')} />
+            <input type="text" placeholder='Enter Username' id='username' {...register('username')} />
           </div>
           <div>
-            <input type="password" placeholder='Enter Password' id='userPassword' {...register('userPassword')} />
+            <input type="password" placeholder='Enter Password' id='password' {...register('password')} />
           </div>
           <div>
             <button type='submit'>Login</button>
           </div>
+          
         </form>
+
+        {loginErr.length !==0 && (
+            <p className="display-3 text-danger text-center">{loginErr}</p>
+        )}
       </div>
     </div>
   );
 }
 
 export default Login;
+

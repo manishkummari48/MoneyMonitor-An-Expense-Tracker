@@ -1,47 +1,33 @@
-import React, { useEffect, useState } from 'react'
-import './NavigationBar.css'
+import React, { useEffect, useState, useContext } from 'react';
+import './NavigationBar.css';
 import { NavLink, useNavigate } from 'react-router-dom';
 import logo from '../../images/logo.png';
+import { loginContext } from '../../contexts/loginContext';
 
 function NavigationBar() {
+  let [loggedInUser,loginErr,userLoginStatus,loginUser,logoutUser] = useContext(loginContext)
 
-  const [isUserLoggedin, setIsUserLoggedin] = useState(false);
-  const [loggedinEmail, setLoggedInEmail ] = useState()
   const navigate = useNavigate();
 
-  // HANDLE LOGOUT
-  const handleLogout = ()=>{
-    localStorage.clear();
-    window.location.reload()
-  }
-
-  useEffect(()=>{
-      const userEmail = localStorage.getItem('userEmail');
-      setLoggedInEmail(userEmail);
-      if(userEmail!=null) {
-        setIsUserLoggedin(true);
-        navigate('main')
-      }
-      else{
-         navigate('/')
-      }
-  },[localStorage.getItem('userEmail')])
+ 
+  
 
   return (
-    <div className='navigation-bar'>
-        <div className="logo-container">
-          <img src={logo} alt="Website Logo" className="logo" />
-        </div>
-       <div className="box box3">
-            {isUserLoggedin&&<p>USER : {loggedinEmail}</p>}
-            <NavLink to = "/">Home</NavLink>
-            {isUserLoggedin && <NavLink to="/" onClick={()=>handleLogout()}>Logout</NavLink>}
-            {isUserLoggedin && <NavLink to="/main">Main</NavLink>}
-            {isUserLoggedin===false && <NavLink to="/login">Login</NavLink>} 
-            {isUserLoggedin===false && <NavLink to="/register">Register</NavLink>} 
-        </div>
+    <div className="navigation-bar">
+      <div className="logo-container">
+        <img src={logo} alt="Website Logo" className="logo" />
+      </div>
+      <div className="box box3">
+        {userLoginStatus && <p>USER: {loggedInUser.username}</p>}
+        <NavLink to="/">Home</NavLink>
+        {!userLoginStatus && <NavLink to="/register">Register</NavLink>}
+        {userLoginStatus && <NavLink to="/main">Main</NavLink>}
+        {userLoginStatus && <NavLink to="/" onClick={logoutUser}>Logout</NavLink>}
+        {!userLoginStatus && <NavLink to="/login">Login</NavLink>} 
+         
+      </div>
     </div>
-  )
+  );
 }
 
 export default NavigationBar;

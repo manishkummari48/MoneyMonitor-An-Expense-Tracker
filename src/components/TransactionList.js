@@ -10,16 +10,24 @@ function TransactionList({ transactions, deleteTransaction }) {
       <div className="income-history">
         <h2>Income History</h2>
         <ul>
-          {incomeTransactions.map((transaction, index) => (
-            <Transaction key={index} transaction={transaction} deleteTransaction={() => deleteTransaction(transaction.id)} />
+          {incomeTransactions.map((transaction) => (
+            <Transaction 
+              key={transaction._id} 
+              transaction={transaction} 
+              deleteTransaction={() => deleteTransaction(transaction._id)} // Use _id from MongoDB
+            />
           ))}
         </ul>
       </div>
       <div className="expense-history">
         <h2>Expense History</h2>
         <ul>
-          {expenseTransactions.map((transaction, index) => (
-            <Transaction key={index} transaction={transaction} deleteTransaction={() => deleteTransaction(transaction.id)} />
+          {expenseTransactions.map((transaction) => (
+            <Transaction 
+              key={transaction._id} 
+              transaction={transaction} 
+              deleteTransaction={() => deleteTransaction(transaction._id)} // Use _id from MongoDB
+            />
           ))}
         </ul>
       </div>
@@ -28,3 +36,4 @@ function TransactionList({ transactions, deleteTransaction }) {
 }
 
 export default TransactionList;
+

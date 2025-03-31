@@ -126,6 +126,22 @@
       "amount": 400,
       "date": "2024-08-12",
       "description": "m"
+    },
+    {
+      "id": "e73a",
+      "email": "manishkummari@gmail.com",
+      "type": "income",
+      "amount": 3000,
+      "date": "2024-10-09",
+      "description": "income"
+    },
+    {
+      "id": "646c",
+      "email": "manishkummari@gmail.com",
+      "type": "expense",
+      "amount": 200,
+      "date": "2024-10-11",
+      "description": "xx"
     }
   ]
 }
