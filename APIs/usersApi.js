@@ -1,6 +1,6 @@
 const exp = require("express")
 //mini-express object (A router)
-const usersApp = exp();
+const usersApp = exp.Router();
 
 const expressAsyncHandler=require("express-async-handler")
 const bcryptjs = require("bcryptjs")
@@ -11,9 +11,6 @@ const verifyToken= require("./middlewares/verifyToken")
 //It is middle ware for converting json object to js object
 usersApp.use(exp.json())
 
-
-
-//CREATE USERS API
 
 //user sign up
 //PUBLIC ROUTE
@@ -96,7 +93,6 @@ usersApp.get("/verify-user", verifyToken, expressAsyncHandler(async(req, res) =>
         res.status(401).send({success: false, message: "User not found"})
     }
 }))
-
 
 
 module.exports=usersApp;

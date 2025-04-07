@@ -87,17 +87,7 @@ const postTransaction = async (newTransaction) => {
 
 
 const fetchTransactions = async (username) => {
-    /*
-    console.log(`Fetching transactions for: ${username}`);
-    try {
-        const response = await axios.get(`http://localhost:3500/transactions-api/get-transactions/${username}`);
-        const transactionsarray = response.data.payload || [];
-        setTransactions(transactionsarray); 
-        console.log("Fetched Transactions:", response);
-        //console.log("All Transactions:", response.data.payload);
-    } catch (error) {
-        console.error("Error fetching transactions:", error);
-    }*/
+    
         if (!username) return; // ✅ Ensure username is available before making a request
         try {
             const token = localStorage.getItem("token");
@@ -114,10 +104,7 @@ const fetchTransactions = async (username) => {
         }
 };
 
-    /*useEffect(() => {
-        console.log(loggedInUser.username)
-        fetchTransactions(loggedInUser.username);
-    }, []);*/
+   
     
     useEffect(() => {
         if (loggedInUser.username) {

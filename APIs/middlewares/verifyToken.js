@@ -16,7 +16,6 @@ const verifyToken=(req,res,next)=>{
             const decoded= jwt.verify(token,'abcdef')
             req.user = decoded 
             
-
             //calling next middleware
             next()
         }

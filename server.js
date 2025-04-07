@@ -5,6 +5,7 @@ const app = exp();
 app.listen(3500,()=>console.log("Web Server listening at 3500 port number"))
 
 const path= require("path")
+
 //connect react build
 app.use(exp.static(path.join(__dirname,'./build')))
 
@@ -45,10 +46,6 @@ const pageRefresh=(req,res,next)=>{
 }
 app.use('*',pageRefresh)
 
-/*app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "./build/index.html"));
-  });
-*/
 
   /*
 //middle ware for invalid path

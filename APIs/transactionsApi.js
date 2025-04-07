@@ -1,14 +1,12 @@
 const exp = require("express")
 const { ObjectId } = require("mongodb");
 //mini-express object (A router)
-const transactionsApp = exp();
+const transactionsApp = exp.Router();
 
 const expressAsyncHandler=require("express-async-handler");
 const verifyToken = require("./middlewares/verifyToken");
 
 
-//to get body of object, we need body parser middleware
-//It is middle ware for converting json object to js object
 transactionsApp.use(exp.json())
 
 transactionsApp.post("/add-transaction",verifyToken, expressAsyncHandler(async(req,res) =>{
